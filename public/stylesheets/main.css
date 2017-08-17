@@ -1,0 +1,85 @@
+/*登录*/
+.header{
+    height: 36px;
+    line-height: 36px;
+    background: #262626;
+}
+.header span{
+    color: #fff;
+}
+.header a{
+    margin:0 10px;
+    color: #fff;
+}
+.welcomeUser{
+    display: none;
+}
+.loginBtn{
+
+}
+.exitBtn{
+    display: none;
+}
+/*导航*/
+.nav-wapper{
+    height: 60px;
+}
+.nav-wapper .logo{
+    line-height: 60px;
+    font-size: 30px;
+    font-family: "STXingkai","方正黑体简体","微软雅黑" ,sans-serif;
+    margin-left: 20px;
+    font-weight: 800;
+}
+.nav-wapper p {
+    width: 100px;
+    text-align: center;
+    line-height: 20px;
+}
+.news h2{
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    line-height: 80px;
+    font-size: 30px;
+    text-align: center;
+    font-family: "STXingkai","方正黑体简体","微软雅黑" ,sans-serif;
+}
+.news .thumbnail{
+    border: none;
+    text-align: center;
+    font-size: 16px;
+}
+.news .thumbnail h3{
+    line-height: 30px; 
+    font-size: 20px;
+    font-family: "STXingkai","方正黑体简体","微软雅黑" ,sans-serif;  
+}
+.about{
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    padding-bottom: 80px;
+}
+.about .about-lt{
+    padding-left: 50px;
+    font-size: 34px;
+    font-weight: 800px;
+    font-family: "STXingkai","方正黑体简体","微软雅黑" ,sans-serif; 
+    color: #000;
+}
+.about .about-lt p {
+    margin-bottom: 10px;
+}
+.about .about-md{
+    margin-left: 50px;
+    color: #666;
+    font-size: 16px;
+    font-family: "微软雅黑" ,sans-serif; 
+}
+.about .about-md p{
+    margin-bottom: 15px;
+}
+.about .about-rt img{
+    margin-right: 50px;
+    width: 100px;
+    border-radius: 50%;
+}

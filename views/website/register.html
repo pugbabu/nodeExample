@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>注册</title>   
+        <link rel="stylesheet" href="stylesheets/bootstrap.min.css">     
+        <link rel="stylesheet" href="stylesheets/reset.css">
+        <link rel="stylesheet" href="stylesheets/register.css">
+    </head>
+    <body>
+        <div class="container" id="register">
+            <div class="title">
+                <p>加入会员</p>
+                <h1>学讯国际时尚中心</h1>
+            </div>
+            <div class="register">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-md-3 col-sm-3 control-label">用户名</label>
+                        <div class="col-md-7 col-sm-7" style="position:relative;">
+                            <span class="glyphicon glyphicon-user" style="position:absolute;left:20px;top:11px;color:#888;"></span>
+                            <input type="text" value="" name="username" class="form-control username" id="inputEmail3" maxlength="16" placeholder="请输入4-16位字符">
+                            <div class="tooltipBox userTip">
+                                <div class="tooltip-arrow"></div>
+                                <div class="tooltip-inner">
+                                    <span class="glyphicon glyphicon-warning-sign"></span>
+                                    <span class="userText"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-md-3 col-sm-3 control-label">手机号</label>
+                        <div class="col-md-7 col-sm-7" style="position:relative;">
+                            <span class="glyphicon glyphicon-earphone" style="position:absolute;left:20px;top:11px;color:#888;"></span>
+                            <input type="tel" value="" name="phone" class="form-control phone" id="inputEmail3" maxlength="11" placeholder="请输入11位手机号">
+                            <div class="tooltipBox telTip">
+                                <div class="tooltip-arrow"></div>
+                                <div class="tooltip-inner">
+                                    <span class="glyphicon glyphicon-warning-sign"></span>
+                                    <span class="telText"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-md-3 col-sm-3 control-label">密码</label>
+                        <div class="col-md-7 col-sm-7">
+                            <span class="glyphicon glyphicon-blackboard" style="position:absolute;left:20px;top:11px;color:#888;"></span>                           
+                            <input type="password" name="pwd" class="form-control pwd" id="inputPassword3" placeholder="请输入密码">
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label for="inputPassword3" class="col-md-3 col-sm-3 control-label">确认密码</label>
+                        <div class="col-md-7 col-sm-7">
+                            <span class="glyphicon glyphicon-blackboard" style="position:absolute;left:20px;top:11px;color:#888;"></span>                           
+                            <input type="password" name="repwd" class="form-control repwd" id="inputPassword3" placeholder="请再次输入密码">
+                            <div class="tooltipBox pwdTip">
+                                <div class="tooltip-arrow"></div>
+                                <div class="tooltip-inner">
+                                    <span class="glyphicon glyphicon-warning-sign"></span>
+                                    <span class="pwdText"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9 col-md-9">
+                            <a class="btn btn-success registerBtn">注册会员</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>   
+    <script type="text/javascript">
+        $(function() {
+            var regFlag = {
+                userFlag: false,
+                telFlag: false,
+                pwdFlag: false
+            }
+             $('.username').change(function () {              
+                var val = $(this).val();
+                console.log(val)
+                var userReg = /^[a-zA-Z0-9_-]{4,16}$/;
+                if (!val) {
+                    $('.userTip').show();
+                    $('.userText').html('用户名不能为空')
+                } else {
+                    if (userReg.test(val)) {
+                        $('.userTip').hide();
+                        regFlag.userFlag = true;
+                    } else {
+                        $('.userTip').show();
+                        $('.userText').html('用户名输入有误')
+                        regFlag.userFlag = false;                   
+                    }
+                }              
+            })
+            $('.phone').focus(function () {
+                if (!$('.username').val()) {
+                    $('.userTip').show();
+                    $('.userText').html('用户名不能为空')
+                }
+            })
+            $('.phone').change(function () {             
+                var val = $(this).val();
+                var telReg = /^(0|86|17951)?(13[0-9]|15[012356789]|18[0-9]|14[57]|17[678])[0-9]{8}$/;//手机验证
+                if (!val) {
+                    $('.telTip').show();
+                    $('.telText').html('手机号不能为空')
+                } else {
+                    if (telReg.test(val)) {
+                        $('.telTip').hide();
+                        regFlag.telFlag = true;
+                    } else {
+                        $('.telTip').show();
+                        $('.telText').html('手机号输入有误')
+                        regFlag.telFlag = false;                   
+                    }
+                }                           
+            })
+            $('.pwd').focus(function () {
+                if (!$('.phone').val()) {
+                    $('.telTip').show();
+                    $('.telText').html('手机号不能为空')
+                }
+            })
+            $('.repwd').change(function () {
+                if ($(this).val != '') {
+                    if ($('.pwd').val() == $(this).val()) {
+                        regFlag.pwdFlag = true;                                       
+                    } else {
+                        $('.pwdTip').show();
+                        $('.pwdText').html('密码不一致')
+                        regFlag.pwdFlag = false;                                       
+                    }
+                } else {
+                    regFlag.pwdFlag = false;                                                          
+                }               
+            })
+            $('.registerBtn').click(function () {
+                 for(var key in regFlag) {
+                    if (!regFlag[key]){
+                       return 
+                    }                                      
+                }
+                $.ajax({
+                    url: '/register',
+                    type: 'POST',
+                    data: {
+                        name: $('.username').val(),
+                        tel: Number($('.phone').val()),
+                        password: $('.pwd').val()
+                    },
+                    success: function (res) {
+                        console.log(res)
+                        if (res.code == 1) {
+                            window.location.href = '/login'                         
+                        }
+                    },
+                    error: function (err) {
+
+                    }
+                })
+            })          
+            
+        })
+
+    </script>
+    </body>
+</html>

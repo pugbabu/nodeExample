@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>登录</title>     
+        <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+        <link rel="stylesheet" href="stylesheets/reset.css">
+        <link rel="stylesheet" href="stylesheets/login.css">
+    </head>
+    <body>
+        <div class="container" id="login">
+            <div class="title">
+                <p>登录</p>
+                <h1>学讯国际时尚中心</h1>
+            </div>
+            
+            <div class="login clearfix">
+                <div class="fl loginAction">                   
+                    <h3>欢迎访问学讯国际时尚</h3>
+                    <div class="tips">
+                        <span>用户名或密码不正确</span>
+                    </div>
+                    <div class="clearfix" style="width:100%;">
+                        <form class="fl form-horizontal" style="width:70%;">
+                            <div class="form-group" style="padding-left:50px;margin-left:0;margin-bottom:5px">
+                                <label for="inputID3" class="col-sm-2 col-lg-2 control-label">ID</label>
+                                <div class="col-lg-10 col-md-9 col-sm-10">
+                                    <input type="text" class="form-control" id="inputID3" placeholder="请输入用户名">
+                                </div>
+                            </div>
+                            <div class="form-group" style="padding-left:50px;margin-left:0;margin-bottom:5px">
+                                <label for="inputPassword3" class="col-sm-2 col-lg-2 control-label">FW</label>
+                                <div class="col-lg-10 col-md-9 col-sm-10">
+                                <input type="password" class="form-control" id="inputPassword3" placeholder="请输入密码">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-4 col-sm-8">
+                                    <div class="checkbox">
+                                        <label style="line-height:20px;">
+                                        <input type="checkbox" class="rememberMe"> 保存密码
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="fr" style="width:30%;">
+                            <div class="form-group">
+                                <div class="col-lg-10 col-md-8 col-sm-6">
+                                <button type="submit" class="btn btn-default loginBtn">
+                                    <span class="glyphicon glyphicon-lock" style="margin-right:10px;color:#888;"></span>登录
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>               
+                </div>
+                <div class="fl registerAction">
+                    <h3>加入会员</h3>
+                    <p>-您加入了学讯会员吗<a href="/register" style="margin-left:15px;">加入</a></p>
+                    <p>-您丢失了ID/FW吗<a href="/register" style="margin-left:28px;">找ID/FW</a></p>              
+                </div>
+            </div>
+            
+        </div>      
+
+    <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>  
+    <script type="text/javascript">
+        $(function () {        
+            var savePwd = localStorage.getItem('passWord');
+            if (savePwd) {
+                $('#inputPassword3')[0].value = savePwd;
+            }  
+            $('.loginBtn').click(function () {
+                var userId = $('#inputID3')[0].value;
+                var passWord = $('#inputPassword3')[0].value;
+                localStorage.setItem('userId', userId); 
+                localStorage.setItem('passWord', passWord);  
+                $.ajax({
+                    url: '/login',
+                    type: 'POST',
+                    data: {
+                        name: $('#inputID3').val(),
+                        pwd: $('#inputPassword3').val()
+                    },
+                    success: function (res) {
+                        console.log(res)
+                        if (res.code == 1) {
+                            window.location.href = '/'
+                        } else {
+                            $('.tips').show();
+                            setTimeout(function () {
+                                $('.tips').hide();
+                            },1000)
+                        }
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+                })
+                // window.location.href = 'index.html'                                       
+                
+            })
+            
+            
+        })
+    
+    
+    </script>
+    </body>
+</html>

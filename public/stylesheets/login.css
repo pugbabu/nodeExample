@@ -1,0 +1,78 @@
+body{
+    width: 100%;
+    height: 100%;
+    background: #f1f1f1;
+}
+#login{
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0,0,0,.1);
+    background: #fff;
+    width: 800px;
+    margin-top: 100px;
+    padding-bottom: 30px;
+}
+.title{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 24px;
+}
+.title p {
+    font-size: 30px;
+}
+.title h1{
+    margin-top: 30px;
+}
+.login{
+    border: 1px solid #ddd;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-size: 14px;
+    padding: 20px 0;
+    width: 100%;
+   
+
+}
+.login .loginAction{
+    width: 50%;
+    border-right: 1px solid #ddd;
+    box-sizing: border-box;
+    position: relative;
+    
+}
+.login  h3{
+    color: #000;
+    font-weight: 600;
+    font-size: 16px;
+    padding-left: 30px;
+    padding-top: 20px;
+    margin-bottom: 35px;
+}
+.loginBtn{
+    width: 90px;
+    height: 70px;
+}
+.registerAction{
+    width: 50%; 
+}
+.registerAction p{
+    padding-left: 30px;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.registerAction p a{
+    margin-left: 15px;
+    border: 2px solid #888;
+    line-height: 20px;
+    padding:0 5px;
+    color: #000;
+}
+.tips{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    color: red;
+    position: absolute;
+    top: 50px;
+    text-align: center;
+    display: none;
+}

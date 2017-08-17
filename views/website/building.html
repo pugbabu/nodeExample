@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+    网站正在完善中，敬请期待!<span id="time" style="color:red;">2</span>s后将回到主页
+    </body>
+    <script>
+        window.onload = function() {
+            var time = document.getElementById('time');
+            var init = 2;
+            var timer = setInterval(function () {
+                init--;
+                time.innerHTML = init;
+                if (init == 0) {
+                    clearInterval(timer);
+                    window.location.href = '/'
+                }
+            }, 1000)
+
+        }
+    
+    
+    </script>
+</html>

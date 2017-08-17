@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>测试</title>                    
+        <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+        <link rel="stylesheet" href="stylesheets/reset.css">
+        <link rel="stylesheet" href="stylesheets/main.css">  
+        
+    </head>
+    <body>
+        <div class="container">
+             <div class="header clearfix">                 
+                <div class="fr">
+                    <span class="welcomeUser">欢迎用户<b style="color:red;" id="saveUser"></b>来到学讯国际中心</span>
+                    <a href="/login" class="loginBtn">登录</a>
+                    <a href="javascript:void(0)" class="exitBtn">退出</a>
+                    <a href="/register">加入会员</a> 
+                </div>                        
+            </div>
+            <div class="nav-wapper clearfix">
+                <div class="logo fl">学讯</div>
+                <ul class="nav nav-pills fr">
+                    <li role="presentation">
+                        <a href="/building">
+                            <p>培训</p>
+                            <p>商学院</p>
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a href="/building">
+                            <p>设计</p>
+                            <p>顾问外派</p>
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a href="/building">
+                            <p>设计</p>
+                            <p>企划咨询</p>
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a href="/building">
+                            <p>Business</p>
+                            <p>trend</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="images/1.jpg" alt="...">
+                        <div class="carousel-caption">
+                            ...
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="images/2.jpg" alt="...">
+                        <div class="carousel-caption">
+                            ...
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="images/3.jpg" alt="...">
+                        <div class="carousel-caption">
+                            ...
+                        </div>
+                    </div>
+                  
+                </div>
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <div class="news">
+                <h2>学讯最近动向</h2>
+                <div class="row">
+                    <div class="col-md-4 col-lg-4">
+                        <div class="thumbnail">
+                            <img src="images/1.png" alt="...">
+                            <div class="caption">
+                                <h3>设计开发培训</h3>
+                                <p>2017-08-28</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <div class="thumbnail">
+                            <img src="images/b1.png" alt="...">
+                            <div class="caption">
+                                <h3>设计开发培训</h3>
+                                <p>2017-08-28</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4">
+                        <div class="thumbnail">
+                            <img src="images/3.png" alt="...">
+                            <div class="caption">
+                                <h3>设计开发培训</h3>
+                                <p>2017-08-28</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about clearfix">
+                <div class="fl about-lt">
+                    <p>关于学讯</p>
+                    <p>在线留言</p>
+                </div>
+                <div class="fl about-md">
+                    <p>杭州市下沙高教园区6号大街新加坡科技园2期8幢812室</p>
+                    <p>海宁市一大街温州大厦西附楼8-13楼</p>
+                    <p>
+                        <span>tel: 18814778887</span>
+                        <span>fax: 814778887</span>
+                        <span>web: www.xuexun88.com</span>                       
+                    </p>
+                </div>
+                <div class="fr about-rt">
+                    <img src="images/b1.png" alt="..." class="changeImage">
+                </div>
+
+            </div>
+        </div>
+       
+    <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>   
+    <script>
+        $(function () {
+            var saveUser = localStorage.getItem('userId');
+            if (saveUser) {
+                $('.welcomeUser').show();     
+                $('#saveUser').html(saveUser);
+                $('.loginBtn').hide()
+                $('.exitBtn').show();
+            } 
+            $('.exitBtn').click(function () {
+                localStorage.setItem('userId', '');            
+                $('.welcomeUser').hide();  
+                $('.exitBtn').hide();              
+                $('.loginBtn').show()             
+                                         
+            })
+            var num = 1;
+            var srcText = '';
+            var timer = setInterval(function () {
+                num++;            
+                srcText = 'images/b' + num + '.png';
+                $('.changeImage').attr('src', srcText)
+                console.log(srcText)
+                if (num == 8) {
+                    num = 0;
+                }
+            },2000)
+            
+        })
+    
+    </script>
+    </body>
+</html>
